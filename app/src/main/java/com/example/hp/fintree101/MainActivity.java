@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         FragmentManager fragmentManager=getFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         Login_Fragment login_fragment=new Login_Fragment();
+        ForgotPassword_Fragment forgotPassword_fragment=new ForgotPassword_Fragment();
         fragmentTransaction.add(R.id.frameContainer,login_fragment);
         fragmentTransaction.commit();
         log=(Button)findViewById(R.id.loginBtn);

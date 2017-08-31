@@ -21,6 +21,8 @@ import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 
+import org.w3c.dom.Text;
+
 import static com.facebook.FacebookSdk.getApplicationContext;
 
 /**
@@ -29,6 +31,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class Login_Fragment extends Fragment implements View.OnClickListener {
     TextView sign;
+    TextView forgot;
     View view;
     LoginButton loginButton;
     CallbackManager callbackManager;
@@ -46,6 +49,7 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
 
     private void setListeners() {
         sign.setOnClickListener(this);
+        forgot.setOnClickListener(this);
         loginButton.setOnClickListener(this);
 
     }
@@ -54,6 +58,7 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
 
         fragmentManager = getActivity().getFragmentManager();
         sign = (TextView) view.findViewById(R.id.createAccount);
+        forgot=(TextView)view.findViewById(R.id.forgot_password);
         loginButton=(LoginButton)view.findViewById(R.id.login_button);
         callbackManager= CallbackManager.Factory.create();
 
@@ -92,6 +97,8 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
                     }
                 });
 
+                break;
+            case R.id.forgot_password:fragmentManager.beginTransaction().replace(R.id.frameContainer,new ForgotPassword_Fragment()).commit();
                 break;
         }
     }
