@@ -9,6 +9,9 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -32,10 +35,12 @@ import static com.facebook.FacebookSdk.getApplicationContext;
 public class Login_Fragment extends Fragment implements View.OnClickListener {
     TextView sign;
     TextView forgot;
+    private static CheckBox show_hide_password;
     View view;
     LoginButton loginButton;
     CallbackManager callbackManager;
     private static FragmentManager fragmentManager;
+    private static Animation shake;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,7 +65,9 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
         sign = (TextView) view.findViewById(R.id.createAccount);
         forgot=(TextView)view.findViewById(R.id.forgot_password);
         loginButton=(LoginButton)view.findViewById(R.id.login_button);
+        show_hide_password=(CheckBox)view.findViewById(R.id.show_hide_password);
         callbackManager= CallbackManager.Factory.create();
+        shake= AnimationUtils.loadAnimation(getActivity(),R.anim.shake);
 
 
 
