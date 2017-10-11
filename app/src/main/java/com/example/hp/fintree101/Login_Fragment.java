@@ -19,6 +19,7 @@ import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
@@ -89,7 +90,22 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
                 LoginManager.getInstance().registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
                     @Override
                     public void onSuccess(LoginResult loginResult) {
+                        Profile profile=Profile.getCurrentProfile();
+                       /* if(profile!=null)
+                        {
+                            Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
+                            intent.putExtra("name",profile.getFirstName());
+                            intent.putExtra("surname",profile.getLastName());
+                            intent.putExtra("dp",profile.getProfilePictureUri(200,200).toString());
+                            startActivity(intent);
+                        }*/
                         Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
+                            Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
+                       startActivity(intent);
+
+                        //nextActivity(profile);
+
+
 
                     }
 
@@ -109,4 +125,6 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
                 break;
         }
     }
+
+
 }
