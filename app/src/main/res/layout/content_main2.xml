@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_main2"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.hp.fintree101.Main2Activity"
+    tools:showIn="@layout/app_bar_main2">
+
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView1"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp">
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:id="@+id/linearLayout1"
+                android:orientation="horizontal"
+                android:layout_height="fill_parent">
+                <Button
+                    android:id="@+id/angry_btn2"
+
+                    android:text="All"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+
+                    android:layout_width="111dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/round"
+                    />
+
+                <Button
+                    android:id="@+id/angry_btn3"
+
+                    android:text="Symarry"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+
+                    android:layout_width="111dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/round"
+                    />
+
+                <Button
+                    android:id="@+id/angry_btn4"
+
+                    android:text="Yearly"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+
+                    android:layout_width="111dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/round"
+                    />
+                <Button
+                    android:id="@+id/angry_btn5"
+
+                    android:text="Monthly"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp"
+
+                    android:layout_width="111dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/round"
+                    />
+
+
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+
+    <com.prolificinteractive.materialcalendarview.MaterialCalendarView
+        android:id="@+id/calendarView"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        app:mcv_showOtherDates="all"
+        app:mcv_selectionColor="#00F"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="45dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="67dp"
+        android:text="          Account                                                 Balance"
+        android:textColor="@color/background_color"
+
+        android:layout_alignBottom="@+id/scrollView1" />
+
+</RelativeLayout>
+
+

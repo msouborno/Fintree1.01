@@ -3,8 +3,10 @@ package com.example.hp.fintree101;
 import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.Intent;
+import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +26,10 @@ import com.facebook.appevents.AppEventsLogger;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.CalendarMode;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import org.w3c.dom.Text;
 
@@ -39,6 +45,7 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
     private static CheckBox show_hide_password;
     View view;
     LoginButton loginButton;
+    MaterialCalendarView materialCalendarView;
     CallbackManager callbackManager;
     private static FragmentManager fragmentManager;
     private static Animation shake;
@@ -50,13 +57,15 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
         view= inflater.inflate(R.layout.login_layout,container,false);
         intit();
         setListeners();
-        return view;
+
+     return view;
     }
 
     private void setListeners() {
         sign.setOnClickListener(this);
         forgot.setOnClickListener(this);
         loginButton.setOnClickListener(this);
+
 
     }
 
@@ -68,6 +77,10 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
         loginButton=(LoginButton)view.findViewById(R.id.login_button);
         show_hide_password=(CheckBox)view.findViewById(R.id.show_hide_password);
         callbackManager= CallbackManager.Factory.create();
+
+
+
+
         shake= AnimationUtils.loadAnimation(getActivity(),R.anim.shake);
 
 
@@ -101,7 +114,7 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
                         }*/
                         Toast.makeText(getActivity(), "Success", Toast.LENGTH_SHORT).show();
                             Intent intent=new Intent(getApplicationContext(),Main2Activity.class);
-                       startActivity(intent);
+                             startActivity(intent);
 
                         //nextActivity(profile);
 
@@ -123,7 +136,9 @@ public class Login_Fragment extends Fragment implements View.OnClickListener {
                 break;
             case R.id.forgot_password:fragmentManager.beginTransaction().replace(R.id.frameContainer,new ForgotPassword_Fragment()).commit();
                 break;
+
         }
+
     }
 
 
